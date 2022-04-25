@@ -1,7 +1,14 @@
 package main
 
-import "patreon-dl/internal/app/patreon-dl/service"
+import (
+	"os"
+	"patreon-dl/internal/app/patreon-dl/util"
+)
 
 func main() {
-	service.DlPost()
+	args := os.Args
+	if len(args) == 2 && args[0] == "--proxy" {
+		util.ProxyUrl = args[1]
+	}
+	//service.DlPost()
 }

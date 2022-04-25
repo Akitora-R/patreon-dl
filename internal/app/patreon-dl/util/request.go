@@ -20,13 +20,13 @@ const (
 	POST
 )
 
-var hasWall = true
+var ProxyUrl string
 
 func init() {
 	//_, _, err := NewGetRequest("https://www.google.com").SetTimeout(2000).Exec()
 	//if err != nil {
 	//	log.Println("上梯")
-	//	hasWall = true
+	//	useProxy = true
 	//	return
 	//}
 	//log.Println("直连")
@@ -252,14 +252,9 @@ func (r *Request) execPostJson() ([]byte, *http.Response, error) {
 }
 
 func (r *Request) SetOptionalProxy() *Request {
-	if hasWall {
-		return r.SetDefaultProxy()
+	if ProxyUrl != "" {
+		r.ProxyUrl = ProxyUrl
 	}
-	return r
-}
-
-func (r *Request) SetDefaultProxy() *Request {
-	r.ProxyUrl = "http://localhost:1082"
 	return r
 }
 
