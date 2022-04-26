@@ -2,6 +2,7 @@ package service
 
 import (
 	"io/ioutil"
+	"log"
 	"os"
 )
 
@@ -36,4 +37,16 @@ func init() {
 		panic(err)
 	}
 	header["cookie"] = []string{string(b)}
+}
+
+func DlAll() {
+	campaigns, err := GetCampaign()
+	if err != nil {
+		panic(err)
+	}
+	log.Println("一共", len(campaigns), "人")
+	for _, campaign := range campaigns {
+		log.Println(campaign.Name)
+		DlAllPost(campaign)
+	}
 }
