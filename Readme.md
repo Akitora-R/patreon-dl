@@ -1,5 +1,5 @@
 # usage
-在同级目录下保存 [patreon](https://www.patreon.com) 的cookie到 `cookies.txt`
+在同级目录下保存 [patreon](https://www.patreon.com) 的cookie到 `cookies.txt` ，然后运行程序。
 ## 参数
 * `--proxy http://xxx:123` 
 
